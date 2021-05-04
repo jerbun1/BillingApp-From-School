@@ -1,0 +1,126 @@
+﻿<!-- Date: Friday Oct 2 2020, 
+    Name: Jermaine Henry
+    Program: Creating a Object Program for Viewing -->
+    <Window x:Class="NETD3202._04_Lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NETD3202._04_Lab1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--Comments from the Prof -->
+    <!-- you had a grid margin of 380for one of sides
+    you don't want that here it will push things in a single direction -->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/billing.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+
+            <!-- removed widths-->
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- added which column the stackpanel should go into and changed the margin below-->
+        <StackPanel x:Name="MyStackpanel" Grid.Column="0" Margin="50">
+            <!-- All the labels needed for the Project -->
+
+            <!-- the labels below have been moved using the design viewer. That is not allowed! I deleted all the margins.-->
+            
+          <!--Labels for the Windows Form Thee Project Name, Budget, Money Spent, hours Remaining -->
+            <Label x:Name="lblProjectName" Content="Project Name:"  Target="{Binding ElementName=txtProjectName}"  />
+            <Label x:Name="lblBudget" Content="Budget:"  Target="{Binding ElementName=txtBudget}"/>
+            <Label x:Name="lblSpent" Content="Spent:"  Target="{Binding ElementName=txtSpent}"/>
+            <Label x:Name="lblHoursRemain" Content="Est Hours Remaining:"  Target="{Binding ElementName=txtHoursRemain}"/>
+            <Label x:Name="lblStatus" Content="Status:" Target="{Binding ElementName=comboStatus}" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="15"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+
+
+            <!-- same problem below, you moved them using the design view and that caused you the issue. I removed the margins the rendertransferfromorigin and the vertical alignment. -->
+            <!--TextBoxs for the Windows Form Thee Project Name, Budget, Money Spent, hours Remaining -->
+            <TextBox x:Name="txtProjectName" Width="100" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-122" X="53"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBox x:Name="txtBudget" Width="100" RenderTransformOrigin="0.5,0.5"  >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-118" X="51"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBox x:Name="txtSpent" Width="100" RenderTransformOrigin="0.5,0.5"  >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-110" X="50"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <TextBox x:Name="txtHoursRemain" Width="100" RenderTransformOrigin="0.5,0.5"   >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="50" Y="-95"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <!-- Selection box for requirments-->
+            <!-- ComboBox for selected item -->
+            <ComboBox  x:Name="comboStatus" Margin="150,0,25,0" RenderTransformOrigin="0.5,0.5">
+                <ComboBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-20" Y="-80"/>
+                    </TransformGroup>
+                </ComboBox.RenderTransform>
+                <ComboBoxItem IsSelected="True" Content="Requirments"/>
+                <ComboBoxItem Content="Design"/>
+                <ComboBoxItem Content="Implementation"/>
+                <ComboBoxItem Content="Testing"/>
+                <ComboBoxItem Content="Deployment"/>
+                <ComboBoxItem Content="Completed"/>
+            </ComboBox>
+            <!-- Button to create the form-->
+            <Button x:Name="createProject" Content="Create Project" Click="createProject_Click" Margin="75,0,75,0"/>
+
+        </StackPanel>
+        <StackPanel x:Name="MyStackpanel1" Grid.Column="1" Margin="50">
+
+            <ListBox Height="345" x:Name="listBox" Margin="50" MouseDoubleClick="listBoxClick" Opacity="5">
+
+            </ListBox>
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
